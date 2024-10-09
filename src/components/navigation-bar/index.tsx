@@ -7,7 +7,8 @@ type MenuListData = {
 
 const MENU_LIST: MenuListData[] = [
   { title: "Home", slug: "/" },
-  { title: "Explore", slug: "/explore" },
+  { title: "Loker", slug: "/loker" },
+  { title: "Category", slug: "/category" },
 ];
 
 const NavigationBar = () => {
