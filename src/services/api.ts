@@ -9,18 +9,20 @@ export const fetchArticles = async (
   limit = 5,
   page = 1
 ) => {
-  const { data } = await axios.get(`${process.env.API_URL}/articles`, {
+  const { data } = await axios.get(`${process.env.API_URL}/api/v1/articles`, {
     params: { search, category_id, limit, page },
   });
   return data as ArticlesResponse;
 };
 
 export const fetchArticleDetails = async (id: string) => {
-  const { data } = await axios.get(`${process.env.API_URL}/articles/${id}`);
+  const { data } = await axios.get(
+    `${process.env.API_URL}/api/v1/articles/${id}`
+  );
   return data as ArticleDetailResponse;
 };
 
 export const fetchCategories = async () => {
-  const { data } = await axios.get(`${process.env.API_URL}/categories`);
+  const { data } = await axios.get(`${process.env.API_URL}/api/v1/categories`);
   return data as CategoryListResponse;
 };
