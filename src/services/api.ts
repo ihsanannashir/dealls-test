@@ -1,5 +1,6 @@
 import { ArticlesResponse } from "@/types/article";
 import { ArticleDetailResponse } from "@/types/article-detail";
+import { CategoryListResponse } from "@/types/category";
 import axios from "axios";
 
 export const fetchArticles = async (
@@ -21,5 +22,5 @@ export const fetchArticleDetails = async (id: string) => {
 
 export const fetchCategories = async () => {
   const { data } = await axios.get(`${process.env.API_URL}/categories`);
-  return data as CanvasTextAlign;
+  return data as CategoryListResponse;
 };
