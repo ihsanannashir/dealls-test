@@ -1,3 +1,5 @@
+import { GeneralResponse } from "./global";
+
 // Single Article Detail
 export interface ArticleDetail {
   id: number;
@@ -9,7 +11,4 @@ export interface ArticleDetail {
 }
 
 // Response Blueprint
-export interface ArticleDetailResponse {
-  code: number;
-  data: ArticleDetail;
-}
+export type ArticleDetailResponse = GeneralResponse<ArticleDetail>;

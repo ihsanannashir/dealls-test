@@ -1,12 +1,14 @@
+import { GeneralResponse } from "./global";
+
 // Article
-export interface Article {
+export interface ArticleData {
   id: number;
   slug: string;
   title: string;
 }
 
 // Metadata type for pagination
-export interface Metadata {
+export interface MetadataResponse {
   page: number;
   limit: number;
   total_docs: number;
@@ -15,10 +17,7 @@ export interface Metadata {
 }
 
 // Article List
-export interface ArticlesResponse {
-  code: number;
-  data: {
-    data: Article[];
-    metadata: Metadata;
-  };
-}
+export type ArticlesResponse = GeneralResponse<{
+  data: ArticleData[];
+  metadata: MetadataResponse;
+}>;
