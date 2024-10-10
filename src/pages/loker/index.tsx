@@ -71,7 +71,7 @@ const LokerPage = () => {
                   className="text-sm text-brand font-semibold underline"
                   href={`/loker/${article.slug}`}
                 >
-                  Selengkapnya
+                  More
                 </Link>
               </div>
             ))}

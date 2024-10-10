@@ -53,7 +53,7 @@ const LokerDetailPage = ({
               </span>
             </div>
             {article.categories && (
-              <div className="mt-4">
+              <div className="mt-4 space-x-2">
                 {article.categories?.map((category) => (
                   <Link
                     href={`/category/${category.id}`}
