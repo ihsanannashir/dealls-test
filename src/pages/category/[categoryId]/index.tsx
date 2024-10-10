@@ -3,6 +3,7 @@ import { fetchArticles, fetchCategories } from "@/services/api";
 import { ArticleData } from "@/types/article";
 import { CategoryData, CategoryListResponse } from "@/types/category";
 import { GetServerSideProps } from "next";
+import Head from "next/head";
 import { useState } from "react";
 
 interface CategoryDetailPageProps {
@@ -48,23 +49,37 @@ const CategoryDetailPage = ({
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">{title}</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {articles.map((article) => (
-          <ArticleCard variant="small" key={article.id} data={article} />
-        ))}
+    <>
+      <Head>
+        <title>{title} | Dealls – Job Vacancies and Mentoring</title>
+        <meta
+          name="description"
+          content="Discover job opportunities and mentoring for Indonesian talents."
+        />
+        <meta
+          name="keywords"
+          content={`${title}, jobs, mentoring, Indonesia, Dealls`}
+        />
+      </Head>
+
+      <div className="container mx-auto p-4">
+        <h1 className="text-2xl font-bold mb-4">{title}</h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {articles.map((article) => (
+            <ArticleCard variant="small" key={article.id} data={article} />
+          ))}
+        </div>
+        {hasMore && (
+          <button
+            className="mt-8 px-4 py-2 bg-blue-600 text-white rounded"
+            onClick={loadMoreArticles}
+            disabled={loading}
+          >
+            {loading ? "Loading..." : "View More"}
+          </button>
+        )}
       </div>
-      {hasMore && (
-        <button
-          className="mt-8 px-4 py-2 bg-blue-600 text-white rounded"
-          onClick={loadMoreArticles}
-          disabled={loading}
-        >
-          {loading ? "Loading..." : "View More"}
-        </button>
-      )}
-    </div>
+    </>
   );
 };
 

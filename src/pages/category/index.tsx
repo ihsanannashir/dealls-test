@@ -1,6 +1,7 @@
 import { fetchCategories } from "@/services/api";
 import { CategoryListResponse } from "@/types/category";
 import { GetStaticProps } from "next";
+import Head from "next/head";
 import Link from "next/link";
 
 type CategoryPageProps = {
@@ -10,6 +11,15 @@ type CategoryPageProps = {
 const CategoryPage = ({ categories }: CategoryPageProps) => {
   return (
     <>
+      <Head>
+        <title>Find Category | Dealls – Job Vacancies and Mentoring</title>
+        <meta
+          name="description"
+          content="Discover job opportunities and mentoring for Indonesian talents."
+        />
+        <meta name="keywords" content={`jobs, mentoring, Indonesia, Dealls`} />
+      </Head>
+
       <h2 className="font-semibold text-xl text-center my-4">
         Cari Kategori yang sesuai denganmu!
       </h2>
