@@ -7,6 +7,8 @@ import { ArticleData } from "@/types/article";
 import Custom404 from "@/pages/404";
 import ArticleCard from "@/components/article-card";
 import Head from "next/head";
+import SocialShare from "@/components/social-share";
+import moment from "moment";
 
 type LokerDetailPageProps = {
   article: ArticleDetail | null;
@@ -42,9 +44,14 @@ const LokerDetailPage = ({
       </Head>
 
       <div className="grid grid-rows-1 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-        <div className="border rounded-lg sm:col-span-2 lg:col-span-3">
+        <section className="border rounded-lg sm:col-span-2 lg:col-span-3">
           <div className="p-4">
-            <h1 className="text-xl sm:text-2xl font-bold">{article.title}</h1>
+            <div className="w-full flex flex-col sm:flex-row sm:justify-between items-center">
+              <h1 className="text-xl sm:text-2xl font-bold">{article.title}</h1>
+              <span className="text-sm text-gray-600">
+                {moment(article.created_at).format("LLL")}
+              </span>
+            </div>
             {article.categories && (
               <div className="mt-4">
                 {article.categories?.map((category) => (
@@ -63,7 +70,12 @@ const LokerDetailPage = ({
           <div className="border-t bg-gray-50">
             <ArticleParser className="p-4" data={article.content} />
           </div>
-        </div>
+
+          <div className="p-4 border-t bg-white flex space-x-4 items-center">
+            <span className="font-semibold">Bagikan: </span>
+            <SocialShare text="Share this opportunity with your friends!" />
+          </div>
+        </section>
 
         <section className="border rounded-lg max-h-min">
           <h2 className="text-lg font-bold p-4 border-b">Loker Serupa</h2>
