@@ -1,4 +1,6 @@
+import clsx from "clsx";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 type MenuListData = {
   title: string;
@@ -12,6 +14,8 @@ const MENU_LIST: MenuListData[] = [
 ];
 
 const NavigationBar = () => {
+  const router = useRouter();
+
   return (
     <div className="w-full bg-brand p-4 fixed top-0 z-50">
       <div className="max-w-6xl mx-auto flex justify-between text-white">
@@ -23,7 +27,10 @@ const NavigationBar = () => {
             <Link
               key={index}
               href={menu.slug}
-              className="hover:text-yellow-300"
+              className={clsx(
+                "hover:text-yellow-300",
+                router.pathname === menu.slug && "text-yellow-300"
+              )}
             >
               {menu.title}
             </Link>
