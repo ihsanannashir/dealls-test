@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.article p {
+  @apply text-base mb-4 text-justify;
+}
+
+.article img {
+  @apply border rounded-lg;
+}
+
+.article h2 {
+  @apply text-xl font-semibold mb-4;
+}
+
+.article ol li,
+.article ul li {
+  @apply mb-2 list-disc ml-4;
+}

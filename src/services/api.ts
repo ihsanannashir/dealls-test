@@ -5,7 +5,7 @@ import axios from "axios";
 
 export const fetchArticles = async (
   search?: string,
-  category_id?: number,
+  category_id?: number | string,
   limit = 5,
   page = 1
 ) => {
